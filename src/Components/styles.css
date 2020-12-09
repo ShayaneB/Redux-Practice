@@ -1,0 +1,21 @@
+.card{
+    display: inline-block;
+    width: 10rem;
+    height: 20rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
+}
+
+ul:not(.browser-default) {
+    display: inline-flex;
+}
+
+.box{
+    display: inline-block;
+    border: 0.2rem solid black;
+}
+
+img{
+    width: 10rem;
+    height: 20rem;  
+}
