@@ -1,14 +1,25 @@
 import React from 'react';
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
+import { useSelector, useDispatch } from "react-redux";
+
 import { addToCart } from './actions/cartActions'
 import "./styles.css";
 
-const Home = (props) => {
+const Home = () => {
+    const items = useSelector(state => state.items)
+    
+    const dispatch = useDispatch()
+    // const mapDispatchToProps= (dispatch)=>{
+    //     return{
+    //         addToCart: (id)=>{dispatch(addToCart(id))}
+    //     }
+    // }
+
     const handleClick = (id)=>{
-        props.addToCart(id); 
+        dispatch(addToCart(id)); 
     }
 
-    let itemList = props.items.map(item=>{
+    let itemList = items.map(item=>{
         return(
             <div className="card" key={item.id}>
                     <div className="card-image">
@@ -37,16 +48,5 @@ const Home = (props) => {
     )
 }
 
-const mapStateToProps = (state)=>{
-    return {
-      items: state.items
-    }
-  }
 
-  const mapDispatchToProps= (dispatch)=>{
-    return{
-        addToCart: (id)=>{dispatch(addToCart(id))}
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default Home;

@@ -1,13 +1,16 @@
 import React from 'react';
-import { connect } from 'react-redux'
+// import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import "./styles.css";
+import { useSelector } from "react-redux";
 
-const Cart = (props) => {
+const Cart = () => {
+
+    const items = useSelector(state => state.addedItems)
               
-        let addedItems = props.items.length ?
+        let addedItems = items.length ?
             (  
-                props.items.map(item=>{
+                items.map(item=>{
                     return(
                        
                         <li className="collection-item avatar" key={item.id}>
@@ -49,10 +52,4 @@ const Cart = (props) => {
        )
     }
 
-const mapStateToProps = (state)=>{
-    return{
-        items: state.addedItems
-    }
-}
-
-export default connect(mapStateToProps)(Cart)
+export default Cart;
