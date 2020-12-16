@@ -9,11 +9,6 @@ const Home = () => {
     const items = useSelector(state => state.items)
     
     const dispatch = useDispatch()
-    // const mapDispatchToProps= (dispatch)=>{
-    //     return{
-    //         addToCart: (id)=>{dispatch(addToCart(id))}
-    //     }
-    // }
 
     const handleClick = (id)=>{
         dispatch(addToCart(id)); 
@@ -28,7 +23,7 @@ const Home = () => {
                         <span to="/" 
                         className="btn-floating halfway-fab waves-effect waves-light red"
                         onClick={()=>{handleClick(item.id)}}>
-                        <i className="material-icons">add</i></span>
+                        <i className="fa fa-plus" aria-hidden="true"></i></span>
                     </div>
 
                     <div className="card-content">
